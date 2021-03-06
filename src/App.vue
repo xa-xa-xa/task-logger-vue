@@ -1,16 +1,84 @@
 <template>
   <div class="container">
-<Header title="Task Logger" />
+    <Header
+      title="Task Logger"
+      @toggle-add-task="toggleAddTask"
+      @showTask="showAddTasks"
+    />
+    <div v-show="showAddTasks">
+      <AddTask @add-task="addTask" />
+    </div>
+    <Tasks
+      :tasks="tasks"
+      @delete-task="deleteTask"
+      @toggle-reminder="toggleReminder"
+    />
   </div>
 </template>
 
 <script>
+// imports
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
-import Header from './components/Header'
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Tasks,
+    AddTask,
+  },
+  data() {
+    return {
+      tasks: [],
+      showAddTasks: false,
+    };
+  },
+  methods: {
+    toggleAddTask() {
+      this.showAddTasks = !this.showAddTasks;
+    },
+    addTask(task) {
+      this.tasks = [...this.tasks, task];
+    },
+    deleteTask(id) {
+      if (
+        confirm(
+          `You are about to delete "${
+            this.tasks.find((t) => t.id === id).text
+          }" task. Are you sure?`
+        )
+      )
+        this.tasks = this.tasks.filter((t) => t.id !== id);
+    },
+    toggleReminder(id) {
+      console.log(
+        'remainder',
+        id,
+        this.tasks.find((t) => t.id === id).reminder
+      );
+      this.tasks = this.tasks.map((task) => {
+        // TODO Toggling just once???
+        return task.id === id ? { ...task, reminder: !task.remainder } : task;
+      });
+    },
+  },
+  created() {
+    this.tasks = [
+      {
+        id: 1,
+        text: 'Doctors Appointment',
+        day: 'March 1st at 1:30pm',
+        reminder: false,
+      },
+      {
+        id: 2,
+        text: 'Meeting at work',
+        day: 'March 5th at 4:30pm',
+        reminder: false,
+      },
+    ];
   },
 };
 </script>
