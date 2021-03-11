@@ -3,7 +3,7 @@
     <Header
       title="Task Logger"
       @toggle-add-task="toggleAddTask"
-      @showTask="showAddTasks"
+      :showTask="showAddTasks"
     />
     <div v-show="showAddTasks">
       <AddTask @add-task="addTask" />
@@ -53,15 +53,11 @@ export default {
         this.tasks = this.tasks.filter((t) => t.id !== id);
     },
     toggleReminder(id) {
-      console.log(
-        'remainder',
-        id,
-        this.tasks.find((t) => t.id === id).reminder
+      this.tasks = [...this.tasks].map((task) =>
+        task.id === id
+          ? { ...task, reminder: task.reminder ? false : true }
+          : task
       );
-      this.tasks = this.tasks.map((task) => {
-        // TODO Toggling just once???
-        return task.id === id ? { ...task, reminder: !task.remainder } : task;
-      });
     },
   },
   created() {
