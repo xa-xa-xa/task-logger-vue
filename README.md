@@ -1,6 +1,6 @@
 # vue-crash-course
 
-## Task Logger is a Single Page Web App built in VUE - it allows you to setup and track you tasks and setup a remainder (WIP)
+### Task Logger is a Single Page Web App built in VUE, fake-backend on serve.js - it allows you to setup and track you tasks and setup a remainder (WIP)
 
 ## Project setup
 ```
