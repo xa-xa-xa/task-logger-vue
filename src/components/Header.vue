@@ -4,8 +4,8 @@
     <Button
       @toggle-add-task="$emit('toggle-add-task')"
       @click="onClick()"
-      :text="show"
-      color="green"
+      :text="!showTask ? 'Add Task':'Close'"
+      :color="showTask ? 'red': 'green'"
     />
     <!-- <Button text="Update task" color="blue" />
     <Button text="Delete task" color="red" /> -->
@@ -27,12 +27,6 @@ export default {
       this.$emit('toggle-add-task');
     },
   },
-  computed: {
-    show : function(){
-      // TODO Show conditional rendering on button
-      return this.showTask ? "Close" : "Add Task"
-    }
-  }
   // props: { title: {
   //     type: String,
   //     default: 'Hello World'
