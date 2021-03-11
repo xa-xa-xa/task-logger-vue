@@ -79,4 +79,8 @@ export default {
   flex: 2;
   height: 20px;
 }
+.btn-block {
+  margin:16px  0 32px 0;
+
+}
 </style>
