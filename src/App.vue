@@ -39,20 +39,35 @@ export default {
     toggleAddTask() {
       this.showAddTasks = !this.showAddTasks;
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task];
+    async addTask(task) {
+      const res = await fetch('api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      });
+      const data = await res.json();
+      this.tasks = [...this.tasks, data];
     },
-    deleteTask(id) {
+    async deleteTask(id) {
       if (
         confirm(
           `You are about to delete "${
             this.tasks.find((t) => t.id === id).text
           }" task. Are you sure?`
         )
-      )
-        this.tasks = this.tasks.filter((t) => t.id !== id);
+      ) {
+        const res = await fetch(`api/tasks/${id}`, {
+          method: 'DELETE',
+        });
+        res.status === 200
+          ? (this.tasks = this.tasks.filter((t) => t.id !== id))
+          : alert('Could not delete task');
+      }
     },
-    toggleReminder(id) {
+    async toggleReminder(id) {
+      
       this.tasks = [...this.tasks].map((task) =>
         task.id === id
           ? { ...task, reminder: task.reminder ? false : true }
@@ -60,21 +75,15 @@ export default {
       );
     },
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctors Appointment',
-        day: 'March 1st at 1:30pm',
-        reminder: false,
-      },
-      {
-        id: 2,
-        text: 'Meeting at work',
-        day: 'March 5th at 4:30pm',
-        reminder: false,
-      },
-    ];
+  async fetchTask(id) {
+    const res = await fetch(`api/tasks/${id}`);
+    const data = await res.json();
+    return data;
+  },
+  async created() {
+    const fetchedData = await fetch('api/tasks');
+    const data = await fetchedData.json();
+    this.tasks = data;
   },
 };
 </script>

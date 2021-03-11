@@ -81,6 +81,5 @@ export default {
 }
 .btn-block {
   margin:16px  0 32px 0;
-
 }
 </style>
