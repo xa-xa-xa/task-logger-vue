@@ -41,10 +41,14 @@ export default {
   cursor: pointer;
   border-left: 5px solid transparent; 
   transition: 300ms;
+  border-radius: 5px;
+    border-right: 5px solid transparent;
+
 }
 .task.reminder {
   transition: 300ms;
   border-left: 5px solid rgb(103, 172, 0);
+  border-right: 5px solid rgb(103, 172, 0);
 }
 .task h3 {
   display: flex;

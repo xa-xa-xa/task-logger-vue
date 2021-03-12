@@ -1,3 +1,4 @@
+import Datepicker from 'vue3-datepicker';
 <template>
   <form @submit="onSubmit">
     <div class="form-control">
@@ -6,7 +7,12 @@
     </div>
     <div class="form-control">
       <label for="">Date & Time</label>
-      <input v-model="day" type="text" name="day" placeholder="Add Date and Time" />
+      <input
+        v-model="day"
+        type="text"
+        name="day"
+        placeholder="Add Date and Time"
+      />
     </div>
     <div class="form-control form-control-check">
       <label for="">Set Reminder</label>
@@ -27,26 +33,25 @@ export default {
     };
   },
   methods: {
-      onSubmit(e) {
-          e.preventDefault();
-          console.log("SUBMIT")
-          if(!this.text) {
-              alert('Please enter task text!');
-              return
-          }
-          const newTask = {
-              id: Math.floor(Math.random()*1000000),
-              text: this.text,
-              reminder: this.reminder,
-              day: this.day,  
-          }
-        this.$emit("add-task",newTask);
-
-          this.text ="";
-          this.day = "";
-          this.reminder = false;
+    onSubmit(e) {
+      e.preventDefault();
+      if (!this.text) {
+        alert('Please enter task text!');
+        return;
       }
-  }
+      const newTask = {
+        id: Math.floor(Math.random() * 1000000),
+        text: this.text,
+        reminder: this.reminder,
+        day: this.day,
+      };
+      this.$emit('add-task', newTask);
+
+      this.text = '';
+      this.day = '';
+      this.reminder = false;
+    },
+  },
 };
 </script>
 
@@ -80,6 +85,11 @@ export default {
   height: 20px;
 }
 .btn-block {
-  margin:16px  0 32px 0;
+  margin: 16px 0 32px 0;
+  color: whitesmoke;
+  transition: 300ms;
 }
+.btn-block:hover {
+  color: rgb(0, 189, 0);
+  transition: 300ms;}
 </style>
