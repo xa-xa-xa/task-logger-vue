@@ -1,6 +1,8 @@
 # vue-crash-course: Task Logger
-
+![alt text](src/assets/screenshot.png "Screenshot")
 Task Logger is a Single Page Web App built in ```VUE```, fake-backend on ```serve.js``` - it allows you to setup and track you tasks and setup a remainder (WIP)
+
+
 
 **Tip:** to toggle reaminder for taks use double click on task.
 
