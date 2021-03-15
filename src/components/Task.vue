@@ -39,16 +39,14 @@ export default {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  border-left: 5px solid transparent; 
-  transition: 300ms;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
   border-radius: 5px;
-    border-right: 5px solid transparent;
-
+  transition: 300ms;
 }
 .task.reminder {
   transition: 300ms;
-  border-left: 5px solid rgb(103, 172, 0);
-  border-right: 5px solid rgb(103, 172, 0);
+  border-color:  rgb(103, 172, 0);
 }
 .task h3 {
   display: flex;
