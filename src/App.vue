@@ -17,7 +17,7 @@ import Footer from './components/Footer';
 export default {
   name: 'App',
   components: {
-    Header, 
+    Header,
     Footer,
   },
   data() {
@@ -28,8 +28,8 @@ export default {
   methods: {
     toggleAddTask() {
       this.showAddTasks = !this.showAddTasks;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -40,9 +40,7 @@ export default {
   /* font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  /* text-align: center; */
   color: #2c3e50;
-  /* margin-top: 60px; */
 }
 * {
   box-sizing: border-box;
@@ -51,19 +49,30 @@ export default {
 }
 body {
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(223, 235, 228) 0 2px,
+    transparent 0 9px
+  );
 }
 .container {
+  background: #fff;
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.container:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .btn {
   display: block;
-  background: #000;
+  background: #444;
   color: #fff;
   padding: 10px 20px;
   margin: 15px;
@@ -72,6 +81,8 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+  border: none;
+  transition: 300ms;
 }
 
 .btn:focus {
