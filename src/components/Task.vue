@@ -5,7 +5,7 @@
   >
     <h3>
       {{ task.text }}
-      <i class="fas fa-times" @click="onDelete(task.id)"></i>
+      <i class="fas fa-times" @click="$emit('delete-task',task.id)"></i>
     </h3>
     <p>{{ task.day }}</p>
   </div>
@@ -16,11 +16,6 @@ export default {
   name: 'Task',
   props: {
     task: Object,
-  },
-  methods: {
-    onDelete(id) {
-      this.$emit('delete-task', id);
-    },
   },
 };
 </script>
@@ -43,6 +38,9 @@ export default {
   border-right: 5px solid transparent;
   border-radius: 5px;
   transition: 300ms;
+}
+.task:hover {
+  background: #ecf3ef;
 }
 .task.reminder {
   transition: 300ms;

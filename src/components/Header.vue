@@ -4,12 +4,9 @@
     <Button
       v-show="onHomePage"
       @btn-click="$emit('toggle-add-task')"
-      @click="onClick()"
       :text="!showTask ? 'Add Task' : 'Close'"
       :color="showTask ? 'red' : 'green'"
     />
-    <!-- <Button text="Update task" color="blue" />
-    <Button text="Delete task" color="red" /> -->
   </header>
 </template>
 

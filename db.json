@@ -9,14 +9,14 @@
     {
       "id": 603827,
       "text": "Fix the car",
-      "reminder": true,
+      "reminder": false,
       "day": "Tomorrow before 5pm"
     },
     {
-      "id": 877226,
-      "text": "Third task",
+      "id": 338828,
+      "text": "new task",
       "reminder": false,
-      "day": "sometime"
+      "day": "3pm"
     }
   ]
 }

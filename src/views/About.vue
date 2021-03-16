@@ -1,11 +1,13 @@
 <template>
-<h1>About:</h1>
-  <h3>
+  <div>
+    <h1>About:</h1>  <h3>
     Version 1.0.0
     <p>
       <router-link to="/">Back</router-link>
     </p>
   </h3>
+
+  </div>
 </template>
 
 <script>
