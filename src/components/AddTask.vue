@@ -24,36 +24,36 @@ import Datepicker from 'vue3-datepicker';
 
 <script>
 export default {
-  name: 'AddTask',
+  name: "AddTask",
   data() {
     return {
-      text: '',
-      day: '',
-      reminder: false,
+      text: "",
+      day: "",
+      reminder: false
     };
   },
   methods: {
     onSubmit(e) {
-      console.log("SUBMITING FORM >>>")
+      console.log("SUBMITING FORM >>>");
       e.preventDefault();
       if (!this.text) {
-        alert('Please enter task text!');
+        alert("Please enter task text!");
         return;
       }
       const newTask = {
         id: Math.floor(Math.random() * 1000000),
         text: this.text,
         reminder: this.reminder,
-        day: this.day,
+        day: this.day
       };
-      
-      this.$emit('add-task', newTask);
 
-      this.text = '';
-      this.day = '';
+      this.$emit("add-task", newTask);
+
+      this.text = "";
+      this.day = "";
       this.reminder = false;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -93,5 +93,6 @@ export default {
 }
 .btn-block:hover {
   color: rgb(0, 189, 0);
-  transition: 300ms;}
+  transition: 300ms;
+}
 </style>
