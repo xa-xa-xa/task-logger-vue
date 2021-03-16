@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div id="app">
+    <div class="container">
     <Header
       title="Task Logger"
       @toggle-add-task="toggleAddTask"
@@ -7,6 +8,7 @@
     />
     <router-view :showAddTasks="showAddTasks"> </router-view>
     <Footer />
+  </div>
   </div>
 </template>
 
@@ -32,6 +34,10 @@ export default {
   },
 };
 </script>
+
+
+
+
 
 <style>
 /* Global Styles */

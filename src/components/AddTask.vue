@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     onSubmit(e) {
+      console.log("SUBMITING FORM >>>")
       e.preventDefault();
       if (!this.text) {
         alert('Please enter task text!');
@@ -45,6 +46,7 @@ export default {
         reminder: this.reminder,
         day: this.day,
       };
+      
       this.$emit('add-task', newTask);
 
       this.text = '';

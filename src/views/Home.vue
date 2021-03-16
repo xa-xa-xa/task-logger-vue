@@ -1,15 +1,18 @@
 <template>
-  <AddTask v-show="showAddTasks" @add-task="addTask" />
-  <Tasks
+  <div class="home">
+    <AddTask v-show="showAddTasks" @add-task="addTask" />
+    <Tasks
     :tasks="tasks"
     @delete-task="deleteTask"
     @toggle-reminder="toggleReminder"
   />
+  </div>
 </template>
 
 <script>
-import Tasks from '../components/Tasks';
-import AddTask from '../components/AddTask';
+// @ is an alias to /src
+import Tasks from '@/components/Tasks';
+import AddTask from '@/components/AddTask';
 
 export default {
   name: 'Home',
