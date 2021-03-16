@@ -40,7 +40,7 @@ export default {
       if (
         confirm(
           `You are about to delete "${
-            this.tasks.find(t => t.id === id).text
+            this.tasks.find((t) => t.id === id).text
           }" task. Are you sure?`
         )
       ) {
@@ -48,7 +48,7 @@ export default {
           method: "DELETE"
         });
         res.status === 200
-          ? (this.tasks = this.tasks.filter(t => t.id !== id))
+          ? (this.tasks = this.tasks.filter((t) => t.id !== id))
           : alert("Could not delete task");
       }
     },
@@ -65,7 +65,7 @@ export default {
 
       const data = await res.json();
 
-      this.tasks = [...this.tasks].map(task =>
+      this.tasks = [...this.tasks].map((task) =>
         task.id === id ? { ...task, reminder: data.reminder } : task
       );
     },

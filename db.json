@@ -1,22 +1,16 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "text": "JSON Doctors Appointment",
-      "day": "March 1st at 1:30pm",
-      "reminder": true
+      "id": 987932,
+      "text": "Doctors appointment ",
+      "reminder": true,
+      "day": "03/25/2021, 04:10 AM"
     },
     {
-      "id": 603827,
-      "text": "Fix the car",
+      "id": 170514,
+      "text": "Go to Costco",
       "reminder": false,
-      "day": "Tomorrow before 5pm"
-    },
-    {
-      "id": 338828,
-      "text": "new task",
-      "reminder": false,
-      "day": "3pm"
+      "day": "March 2, 2021   -  whole day"
     }
   ]
 }
